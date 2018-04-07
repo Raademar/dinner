@@ -148,11 +148,12 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
             <div class="col-md-2">
               RIGHT SIDE
             </div>
-      </div>
     </div>
-      <footer class="text-center" id="footer">&copy; DinnerMatch 2018</footer>
+  <footer class="text-center" id="footer">&copy; DinnerMatch 2018</footer>
   </body>
 </html>
