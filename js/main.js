@@ -26,3 +26,19 @@ function upcominghappeningmodal(id){
     }
   });
 }
+
+  function recenthappeningmodal(id){
+    var data = {"id": id,};
+    jQuery.ajax({
+      url: '/dinner/includes/recenthappeningmodal.php',
+      method: 'post',
+      data: data,
+      success: function(data){
+        jQuery('body').prepend(data);
+        jQuery('#recent-happening').modal('toggle');
+      },
+      error: function(){
+        alert("Oh no.. Something went wrong!");
+      }
+    });
+  }
