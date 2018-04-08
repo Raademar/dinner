@@ -19,9 +19,9 @@
                   <div class="card-body">
                     <h5 class="card-title"><?= $event['title'];?></h5>
                     <p class="card-text"><?= $event['preview_text'];?></p>
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#upcoming-happening">Visit Happening</button>
+                    <button type="button" class="btn btn-info" onclick="upcominghappeningmodal(<?=$event['id']; ?>)">Visit Happening</button>
                   </div>
-                  <div class="card-footer text-muted"><?= $event['date'] ." ". $event['author'];?> </div>
+                  <div class="card-footer text-muted"><?= $event['date'];?></div>
               </div>
             </div>
           <?php endwhile; ?>
@@ -70,8 +70,8 @@
       </div>
 
 <?php
+
   include 'includes/recenthappeningmodal.php';
-  include 'includes/upcominghappeningmodal.php';
   include 'includes/rightbar.php';
   include 'includes/footer.php';
  ?>
