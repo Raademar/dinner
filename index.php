@@ -6,6 +6,9 @@
 
   $sql = "SELECT * FROM happening";
   $happening = $db->query($sql);
+
+  $sql2 = "SELECT * FROM happening WHERE date < CURRENT_DATE";
+  $recenthappening = $db->query($sql2);
  ?>
 
 
@@ -25,18 +28,20 @@
               </div>
             </div>
           <?php endwhile; ?>
-          <div class="row justify-content-center">
-            <div class="col-sm-5 center-col-spacing">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Recent Happening</h5>
-                  <p class="card-text">Visit the events of your last dinners and rate the restaurants now!</p>
-                  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#recent-happening">Visit Happening</button>
+          <?php while($recentevent = mysqli_fetch_assoc($recenthappening)) : ?>
+            <div class="row justify-content-center">
+              <div class="col-sm-5 center-col-spacing">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Recent Happening</h5>
+                    <p class="card-text">Visit the events of your last dinners and rate the restaurants now!</p>
+                    <button type="button" class="btn btn-info" onclick="recenthappeningmodal(<?=$recentevent['id']; ?>)">Visit Happening</button>
+                  </div>
                 </div>
               </div>
-            </div>
-            </div>
-          <div class="row justify-content-center">
+             </div>
+           <?php endwhile; ?>
+           <div class="row justify-content-center">
             <div class="col-md-10 center-col-spacing">
               <div class="card-deck">
                 <div class="card">
@@ -71,7 +76,6 @@
 
 <?php
 
-  include 'includes/recenthappeningmodal.php';
   include 'includes/rightbar.php';
   include 'includes/footer.php';
  ?>

@@ -6,14 +6,16 @@ if(isset($_POST["id"])){
   $id = NULL;
 }
 $id = (int)$id;
-$sql = "SELECT * FROM happening WHERE id = '$id'";
+$sql = "SELECT * FROM happening WHERE id = '$id' AND date > CURRENT_DATE";
 $result = $db->query($sql);
 $happeningmodal = mysqli_fetch_assoc($result);
+
 
 $author_id = $happeningmodal['author'];
 $sql2 = "SELECT full_name FROM user_profile WHERE id ='$author_id'";
 $author_query = $db->query($sql2);
 $author = mysqli_fetch_assoc($author_query);
+
 ?>
 
 <?php ob_start(); ?>
