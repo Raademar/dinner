@@ -1,13 +1,9 @@
 <?php
 require_once '../core/init.php';
-if(isset($_POST["id"])){
-  $id = $_POST["id"];
-}else{
-  $id = NULL;
-}
+include 'upcominghappeningmodal.php';
 
 $id = (int)$id;
-$sql3 ="INSERT INTO recent_happening SELECT * FROM happening WHERE date > CURRENT_DATE";
+$sql3 ="INSERT INTO recent_happening SELECT * FROM happening WHERE date < CURRENT_DATE";
 $date_query = $db->query($sql3);
 $outofdate = mysqli_fetch_assoc($date_query);
 
@@ -30,7 +26,7 @@ $outofdate = mysqli_fetch_assoc($date_query);
         <div class="col-md-8">
           <div class="card">
             <div class="card-body">
-              <p><?= $outofdat['text'];?></p>
+              <p><?= $outofdate['text'];?></p>
             </div>
           </div>
         </div>

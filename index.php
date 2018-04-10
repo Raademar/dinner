@@ -33,8 +33,8 @@
               <div class="col-sm-5 center-col-spacing">
                 <div class="card">
                   <div class="card-body">
-                    <h5 class="card-title">Recent Happening</h5>
-                    <p class="card-text">Visit the events of your last dinners and rate the restaurants now!</p>
+                    <h5 class="card-title"><?= $recentevent['title'];?></h5>
+                    <p class="card-text"><?= $recentevent['preview_text'];?></p>
                     <button type="button" class="btn btn-info" onclick="recenthappeningmodal(<?=$recentevent['id']; ?>)">Visit Happening</button>
                   </div>
                 </div>
