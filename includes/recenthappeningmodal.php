@@ -7,7 +7,7 @@ if(isset($_POST["id"])){
 }
 
 $id = (int)$id;
-$sql3 ="INSERT INTO recent_happening SELECT * FROM happening WHERE date > CURRENT_DATE";
+$sql3 ="SELECT * FROM happening WHERE id = '$id'";
 $date_query = $db->query($sql3);
 $outofdate = mysqli_fetch_assoc($date_query);
 

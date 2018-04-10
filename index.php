@@ -4,14 +4,12 @@
   include 'includes/header.php';
   include 'includes/leftbar.php';
 
-  $sql = "SELECT * FROM happening";
+  $sql = "SELECT * FROM happening WHERE date > CURRENT_DATE";
   $happening = $db->query($sql);
 
   $sql2 = "SELECT * FROM happening WHERE date < CURRENT_DATE";
   $recenthappening = $db->query($sql2);
  ?>
-
-
 
         <div class="row justify-content-center">
           <div class="col-md-8 col-sm-8 col-xs-8 center-col-spacing">

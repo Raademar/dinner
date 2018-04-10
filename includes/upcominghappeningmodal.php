@@ -6,10 +6,9 @@ if(isset($_POST["id"])){
   $id = NULL;
 }
 $id = (int)$id;
-$sql = "SELECT * FROM happening WHERE id = '$id' AND date > CURRENT_DATE";
+$sql = "SELECT * FROM happening WHERE id = '$id'";
 $result = $db->query($sql);
 $happeningmodal = mysqli_fetch_assoc($result);
-
 
 $author_id = $happeningmodal['author'];
 $sql2 = "SELECT full_name FROM user_profile WHERE id ='$author_id'";
@@ -32,7 +31,15 @@ $author = mysqli_fetch_assoc($author_query);
           <h5><?= $happeningmodal['preview_text'];?></h5>
         </div>
       </div>
-      <div class="row justify-content-center center-col-spacing">
+      <div class="row justify-content-center">
+        <div class="col-md-12 text-center">
+          <div class="alert alert-light" role="alert">
+            <button type="button" class="btn btn-outline-success">Accept Invite</button>
+            <button type="button" class="btn btn-outline-danger">Decline Invite</button>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
         <div class="col-md-8">
           <div class="card">
             <div class="card-body">
