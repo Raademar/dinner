@@ -31,21 +31,43 @@ $author = mysqli_fetch_assoc($author_query);
           <h5><?= $happeningmodal['preview_text'];?></h5>
         </div>
       </div>
-      <div class="row justify-content-center">
-        <div class="col-md-12 text-center">
+      <div class="row">
+        <div class="col-md-12">
+          <img src="<?=$happeningmodal['image']; ?>" class="img-fluid" alt="<?=$happeningmodal['title']; ?>">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-7 text-center">
           <div class="alert alert-light" role="alert">
-            <button type="button" class="btn btn-outline-success">Accept Invite</button>
-            <button type="button" class="btn btn-outline-danger">Decline Invite</button>
+            <button type="button" id="accept-invite" class="btn btn-outline-success btn-sm">Accept Invite</button>
+            <button type="button" id="decline-invite" class="btn btn-outline-danger btn-sm">Decline Invite</button>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="alert alert-light" role="alert">
+            <button class="btn btn-outline-info btn-sm" type="button" data-toggle="collapse" data-target="#attending-collapse" aria-expanded="false" aria-controls="attending-collapse">
+              See who's attending
+            </button>
+            <div class="collapse" id="attending-collapse">
+              <div class="card card-body">
+                <?= $happeningmodal['users_attending']; ?>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
           <div class="card">
             <div class="card-body">
               <p><?= $happeningmodal['text'];?></p>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p>Google Map Position Goes Here</p>
         </div>
       </div>
       <div class="row justify-content-center center-col-spacing">

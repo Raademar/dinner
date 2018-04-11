@@ -49,7 +49,7 @@
               <span class="login-nav-class register-text"><a href="#">Register?</a></span>
               <div class="input-group input-group-sm mb-3">
                 <div class="input-group-prepend">
-                  <button class="btn btn-success" id="submitLoginButton" type="submit">Login</button>
+                  <button class="btn btn-outline-success" id="submitLoginButton" type="submit">Login</button>
                 </div>
                 <input id="usernameLogin" type="text" class="form-control" placeholder="Username">
                 <input id="passwordLogin" type="password" class="form-control" placeholder="Password">
