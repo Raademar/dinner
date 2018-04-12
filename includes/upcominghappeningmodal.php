@@ -70,12 +70,20 @@ $author = mysqli_fetch_assoc($author_query);
           <p>Google Map Position Goes Here</p>
         </div>
       </div>
-      <div class="row justify-content-center center-col-spacing">
-        <div class="col-md-6 text-center text-muted">
-          <p>Happening created by <?= $author['full_name']; ?></p>
-        </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline-secondary btn-sm" onclick="closeModal()">Close</button>
       </div>
     </div>
   </div>
 </div>
+<script>
+  function closeModal (){
+    $('#upcoming-happening').modal('hide');
+    setTimeout(function(){
+      jQuery('#upcoming-happening').remove();
+      jQuer('.modal-backdrop').remove();
+    },500);
+  }
+</script>
+
 <?php echo ob_get_clean(); ?>

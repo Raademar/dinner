@@ -190,3 +190,10 @@ body {
 .rightSide {
 
 }
+
+/* ADMINSTRATOR STYLES */
+
+.table-auto {
+  width:auto;
+  margin:0 auto;
+}
