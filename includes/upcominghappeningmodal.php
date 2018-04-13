@@ -71,7 +71,7 @@ $author = mysqli_fetch_assoc($author_query);
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-outline-secondary btn-sm" onclick="closeModal()">Close</button>
+        <span class="fas fa-times light-dark" onclick="closeModal()"></span>
       </div>
     </div>
   </div>

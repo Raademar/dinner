@@ -4,7 +4,7 @@
   include 'includes/header.php';
   include 'includes/leftbar.php';
 
-  $sql = "SELECT * FROM happening WHERE date > CURRENT_DATE";
+  $sql = "SELECT * FROM happening WHERE date >= CURRENT_DATE";
   $happening = $db->query($sql);
 
   $sql2 = "SELECT * FROM happening WHERE date < CURRENT_DATE";

@@ -1,6 +1,16 @@
 /* GLOBAL STYLING */
 
 
+.light-dark {
+  color: #020122;
+}
+
+.light-dark:hover {
+  transform: scale(1.5);
+  transition: .3s;
+}
+
+
 
 /* BODY STYLING */
 
