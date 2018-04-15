@@ -13,7 +13,7 @@
                   <a href="happening.php">Happenings</a>
               </li>
               <li>
-                  <a href="#">Profile</a>
+                  <a href="profile.php">Profile</a>
               </li>
               <li>
                   <a href="#">Settings</a>

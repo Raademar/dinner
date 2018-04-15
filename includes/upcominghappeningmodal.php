@@ -28,7 +28,7 @@ $author = mysqli_fetch_assoc($author_query);
       </div>
       <div class="row justify-content-center">
         <div class="col-md-8 text-center">
-          <h5><?= $happeningmodal['preview_text'];?></h5>
+          <h5><?= $happeningmodal['preview_text'];?></h5><hr>
         </div>
       </div>
       <div class="row">

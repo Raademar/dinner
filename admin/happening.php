@@ -3,18 +3,36 @@
   include 'includes/head.php';
   include 'includes/navigation.php';
   //get happenings from database
-  $sql = "SELECT * FROM happening  WHERE date >= CURRENT_DATE ORDER BY date";
+  $sql = "SELECT * FROM happening";
   $results = $db->query($sql);
   $errors = array();
+
+  //Edit Happening
+  if(isset($_GET['edit']) && !empty($_GET['edit'])){
+    $edit_id = (int)$_GET['edit'];
+    $edit_id = sanitize($edit_id);
+    $sql2 = "SELECT * FROM happening WHERE id = '$edit_id'";
+    $edit_result = $db->query($sql2);
+    $eHappening = mysqli_fetch_assoc($edit_result);
+  }
+
+  //Delete Happening.
+  if(isset($_GET['delete']) && !empty($_GET['delete'])){
+    $delete_id = (int)$_GET['delete'];
+    $delete_id = sanitize($delete_id);
+    $sql = "DELETE FROM happening WHERE id = '$delete_id'";
+    $db->query($sql);
+    header('Location: happening.php');
+  }
 
 
   //If add form is submitted
   if(isset($_POST['add_submit'])){
     $addhappening = sanitize($_POST['addhappening']);
-    $happeningtext = $_POST['happeningtext'];
-    $happeningdate = $_POST['happeningdate'];
-    $happeninguserid = $_POST['userid'];
-    $happeningimage = $_POST['imageuploader'];
+    $happeningtext = sanitize($_POST['happeningtext']);
+    $happeningdate = sanitize($_POST['happeningdate']);
+    $happeninguserid = sanitize($_POST['userid']);
+    $happeningimage = sanitize($_POST['imageuploader']);
 
     $previewtext = substr($happeningtext, 0, 30).'...';
 
@@ -36,6 +54,9 @@
     }
     // check if happening exists in database
     $sql = "SELECT * FROM happening WHERE title ='$addhappening'";
+    if(isset($_GET['edit'])){
+      $sql = "SELECT * FROM happening WHERE title = '$title' AND id != '$edit_id'";
+    }
     $result = $db->query($sql);
     $count = mysqli_num_rows($result);
     if($count > 0){
@@ -49,6 +70,11 @@
       //Add happening to database
       $sql = "INSERT INTO happening (title, preview_text, text, date, author, users_attending, image)
       VALUES ('$addhappening', '$previewtext', '$happeningtext', '$happeningdate', '$happeninguserid', 'Some People', 'images/$happeningimage')";
+      if(isset($_GET['edit'])){
+        $sql = "UPDATE happening
+        SET title = '$addhappening', preview_text = '$previewtext', text = '$happeningtext', date = '$happeningdate', author = '$happeninguserid', users_attending = 'Some other people' , image = 'images/$happeningimage'
+        WHERE id = $edit_id";
+      }
       $db->query($sql);
       header('Location: happening.php');
     }
@@ -56,7 +82,7 @@
   }
 
   ?>
-  <h2 class="text-center">Upcoming Happenings</h2><hr>
+  <h2 class="text-center"><?=((isset($_GET['edit']))?'Edit':'Upcoming'); ?> Happenings</h2><hr>
   <!-- Happenings form -->
   <div class="row">
     <div class="col-md-8">
@@ -79,14 +105,33 @@
       </table>
     </div>
     <div class="col-md-4">
-      <form action="happening.php" method="post">
+      <form action="happening.php<?=((isset($_GET['edit']))?'?edit='.$edit_id:'');?>" method="post">
         <div class="form-group">
+          <?php
+          $happening_value = '';
+          if(isset($_GET['edit'])){
+            $happening_value = $eHappening['title'];
+          }else{
+            if(isset($_POST['title'])){
+              $happening_value = sanitize($_POST['title']);
+            }
+          } ?>
+
           <label for="happening">Title</label>
-          <input type="text" name="addhappening" id="addhappening" class="form-control" value="<?=((isset($_POST['addhappening']))?$_POST['addhappening']:''); ?>">
+          <input type="text" name="addhappening" id="addhappening" class="form-control" value="<?=$happening_value; ?>">
         </div>
           <div class="form-group">
+            <?php
+            $happening_value2 = '';
+            if(isset($_GET['edit'])){
+              $happening_value2 = $eHappening['text'];
+            }else{
+              if(isset($_POST['text'])){
+                $happening_value2 = sanitize($_POST['text']);
+              }
+            } ?>
             <label for="happeningText">Say something about your Happening..</label>
-            <textarea class="form-control" name="happeningtext" id="happeningtext" type="text" rows="3" value="<?=((isset($_POST['happeningtext']))?$_POST['happeningtext']:''); ?>"></textarea>
+            <textarea class="form-control" name="happeningtext" id="happeningtext" type="text" rows="3" value="<?=$happening_value2; ?>"></textarea>
           </div>
           <div class="form-group">
             <label for="pickFriends">Invite your friends..</label>
@@ -109,8 +154,17 @@
             <input type="file" class="form-control-file" name="imageuploader" id="imageuploader">
           </div>
           <div class="form-group">
+            <?php
+            $happening_value3 = '';
+            if(isset($_GET['edit'])){
+              $happening_value3 = $eHappening['author'];
+            }else{
+              if(isset($_POST['author'])){
+                $happening_value3 = sanitize($_POST['author']);
+              }
+            } ?>
             <label for="userid">User ID..</label><br>
-            <input class="form-control" type="text" name="userid" id="userid" value="<?=((isset($_POST['userid']))?$_POST['userid']:''); ?>">
+            <input class="form-control" type="text" name="userid" id="userid" value="<?=$happening_value3; ?>">
           </div>
           <!-- <div class="form-check">
             <input class="form-check-input" type="radio" name="publicHappening" id="publicHappening1" value="public" checked>
@@ -120,7 +174,10 @@
             <input class="form-check-input" type="radio" name="privateHappening" id="privateHappening1" value="private">
             <label class="form-check-label" for="privateHappening1">Private</label>
           </div>  -->
-        <input type="submit" name="add_submit" value="Add Happening" class="btn btn-outline-success">
+        <input type="submit" name="add_submit" value="<?=((isset($_GET['edit']))?'Edit':'Add'); ?> Happening" class="btn btn-outline-success">
+        <?php if(isset($_GET['edit'])): ?>
+          <a href="happening.php" class="btn btn-outline-danger">Cancel</a>
+        <?php endif; ?>
       </form>
     </div>
   </div><hr>
