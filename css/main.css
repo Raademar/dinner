@@ -21,6 +21,13 @@ body {
 .center-col-spacing {
   margin-top:50px;
 }
+.left-profile-spacing {
+  margin-top:25px;
+}
+
+.profile-link-hover:hover {
+  background: bg-success;
+}
 
 
 /* HEADER STYLING */

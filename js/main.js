@@ -9,6 +9,9 @@ $(function(){
     $("#menu-toggle").toggleClass("change");
   });
 
+  //$(".profile-link-hover").on("mouseover", function(){
+    //$(".profile-link-hover").addClass("text-success")
+//  });
 
 
 });
