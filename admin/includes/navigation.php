@@ -7,16 +7,19 @@
                   <a href="#"></a>
               </li>
               <li>
-                  <a href="index.php">Dashboard</a>
+                  <a href="profile.php">Dashboard</a>
               </li>
               <li>
                   <a href="happening.php">Happenings</a>
               </li>
               <li>
-                  <a href="profile.php">Profile</a>
+                  <a href="index.php">Index</a>
               </li>
               <li>
                   <a href="#">Settings</a>
+              </li>
+              <li>
+                  <a href="#">Logout</a>
               </li>
           </ul>
       </div>
@@ -34,13 +37,13 @@
           </div>
           <div class="col-md-2">
             <div id="login-nav">
-              <span class="login-nav-class profile-text"><a href="#"><i class="fas fa-user"></i></a></span>
-              <span class="login-nav-class notification-text"><a href="#"><i class="fas fa-comments"></i></a></span>
-              <span class="login-nav-class login-text"><a href="#"><i class="fas fa-sign-in-alt"></i></a></span>
-              <span class="login-nav-class register-text"><a href="#">Register?</a></span>
+              <span class="profile-text"><a class="login-nav-class" href="#"><i class="fas fa-user"></i></a></span>
+              <span class="notification-text"><a class="login-nav-class" href="#"><i class="fas fa-comments"></i></a></span>
+              <span class="login-text"><a class="login-nav-class" href="#"><i class="fas fa-sign-in-alt"></i></a></span>
+              <span class="register-text "><a class="login-nav-class" href="../admin/register.php">Register?</a></span>
               <div class="input-group input-group-sm mb-3">
                 <div class="input-group-prepend">
-                  <button class="btn btn-outline-success" id="submitLoginButton" type="submit">Login</button>
+                  <button class="btn" id="submitLoginButton" type="submit">Login</button>
                 </div>
                 <input id="usernameLogin" type="text" class="form-control" placeholder="Username">
                 <input id="passwordLogin" type="password" class="form-control" placeholder="Password">

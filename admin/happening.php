@@ -69,7 +69,7 @@
     }else {
       //Add happening to database
       $sql = "INSERT INTO happening (title, preview_text, text, date, author, users_attending, image)
-      VALUES ('$addhappening', '$previewtext', '$happeningtext', '$happeningdate', '$happeninguserid', 'Some People', 'images/$happeningimage')";
+      VALUES ('$addhappening', '$previewtext', '$happeningtext', '$happeningdate', '$happeninguserid', 'Some People', '/dinner/images/$happeningimage')";
       if(isset($_GET['edit'])){
         $sql = "UPDATE happening
         SET title = '$addhappening', preview_text = '$previewtext', text = '$happeningtext', date = '$happeningdate', author = '$happeninguserid', users_attending = 'Some other people' , image = 'images/$happeningimage'

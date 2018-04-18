@@ -3,5 +3,10 @@
   include 'includes/head.php';
   include 'includes/navigation.php';
   ?>
-  Administrator Side
+
+<?php
+
+
+
+?>
 <?php  include 'includes/footer.php'; ?>

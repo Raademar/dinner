@@ -1,21 +1,13 @@
 /* GLOBAL STYLING */
-
-
-.light-dark {
-  color: #020122;
+h1, h2, h3, h4, h5 {
+  color:#283044;
 }
-
-.light-dark:hover {
-  transform: scale(1.5);
-  transition: .3s;
-}
-
-
 
 /* BODY STYLING */
 
 body {
   overflow-x: hidden;
+  font-family: 'Alegreya', serif;
 }
 
 .center-col-spacing {
@@ -34,17 +26,19 @@ body {
 
 #wrapper {
   padding-left: 0;
-  height: 150px;
+  height: 100px;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
   overflow: hidden;
-  border-bottom: 1px solid #664c43;
+  background-color: #283044;
+
 }
 
 #wrapper.toggled {
   padding-left: 250px;
+
 }
 
 #sidebar-wrapper {
@@ -55,7 +49,7 @@ body {
   height: 100%;
   margin-left: -250px;
   overflow-y: auto;
-  background: #3c5233;
+  background: #283044;
   opacity: 1;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
@@ -84,20 +78,24 @@ body {
 }
 
 #login-nav {
-/*  width:200px;
+  width:300px;
   float: right;
-  /*background-color: #d3d0cf;*/
+  padding: 3px;
 }
 
 .login-nav-class {
   padding:3px;
+  color:#fef5ef;
+}
+.login-nav-class:hover{
+  color:#b5bec6;
 }
 
 
 .bar1, .bar2, .bar3 {
     width: 35px;
     height: 5px;
-    background-color: #664c43;
+    background-color: #fef5ef;
     margin: 6px 0;
     transition: 0.4s;
 }
@@ -114,10 +112,13 @@ body {
 }
 
 .register-text{
-  color: #fef5ef;
   float: right;
   overflow: hidden;
   padding:3px;
+}
+
+.login-button{
+  margin-right:2px;
 }
 
 /* Sidebar Styles */

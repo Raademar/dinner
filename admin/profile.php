@@ -3,13 +3,13 @@
   include 'includes/head.php';
   include 'includes/navigation.php';
 
-  $sql = "SELECT * FROM happening WHERE date >= CURRENT_DATE";
+  $sql = "SELECT * FROM happening WHERE date >= CURRENT_DATE order by date";
   $happening = $db->query($sql);
   ?>
-  <h1 class="text-center display-1 text-warning">Keisa Kelly</h1><hr>
+  <h1 class="text-center display-1">Keisa Kelly</h1><hr>
 
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-3">
       <img src="../images/profilepic.jpeg" class="rounded img-fluid" alt="profile picture">
       <h3 class="display-4 left-profile-spacing">They see me rollin..</h3>
       <ul class="list-group list-group-flush left-profile-spacing">
@@ -21,7 +21,7 @@
       </ul>
 
     </div>
-    <div class="col-md-8">
+    <div class="col-md-6">
       <?php while($event = mysqli_fetch_assoc($happening)) : ?>
         <div class="col-md-12 center-col-spacing">
           <div class="card text-center">
@@ -40,7 +40,7 @@
 
 
 
-    <div class="col-md-2">hej</div>
+    <div class="col-md-3">hej</div>
   </div>
 
 
