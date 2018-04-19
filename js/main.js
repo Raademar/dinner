@@ -13,9 +13,28 @@ $(function(){
     //$(".profile-link-hover").addClass("text-success")
 //  });
 
+  // $("#submitRegistration").click(function(e){
+  //   e.preventDefault();
+  //   $('#submitRegistration').notify("Thank you for signing up and welcome to our world!", "success");
+  // });
+
+
+  // $.ajax({
+  //   url: '/dinner/admin/register.php',
+  //   type: "POST",
+  //   data: {
+  //
+  //   },
+  //   success: function(data){
+  //     data.preventDefault();
+  //       $('#flash-success').toggleClass('success-toggle')
+  //   }
+  // });
 
 });
 
+
+  //happening modal
 function upcominghappeningmodal(id){
   var data = {"id": id,};
   jQuery.ajax({

@@ -5,6 +5,8 @@
 
   $sql = "SELECT * FROM happening WHERE date >= CURRENT_DATE order by date";
   $happening = $db->query($sql);
+
+
   ?>
   <h1 class="text-center display-1">Keisa Kelly</h1><hr>
 
