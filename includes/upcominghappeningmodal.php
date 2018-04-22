@@ -36,7 +36,7 @@ $author = mysqli_fetch_assoc($author_query);
           <img src="<?=$happeningmodal['image']; ?>" class="img-fluid" alt="<?=$happeningmodal['title']; ?>">
         </div>
       </div>
-      <div class="row">
+      <div class="row" id="invite-row">
         <div class="col-md-7 text-center">
           <div class="alert alert-light" role="alert">
             <button type="button" id="accept-invite" class="btn btn-outline-success btn-sm">Accept Invite</button>

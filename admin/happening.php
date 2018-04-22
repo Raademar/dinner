@@ -118,7 +118,7 @@
           } ?>
 
           <label for="happening">Title</label>
-          <input type="text" name="addhappening" id="addhappening" class="form-control" value="<?=$happening_value; ?>">
+          <input type="text" name="addhappening" id="addhappening" class="form-control" value="<?=$happening_value; ?>" required>
         </div>
           <div class="form-group">
             <?php
@@ -131,7 +131,7 @@
               }
             } ?>
             <label for="happeningText">Say something about your Happening..</label>
-            <textarea class="form-control" name="happeningtext" id="happeningtext" type="text" rows="3" value="<?=$happening_value2; ?>"></textarea>
+            <textarea class="form-control" name="happeningtext" id="happeningtext" type="text" rows="3" required><?=$happening_value2; ?></textarea>
           </div>
           <div class="form-group">
             <label for="pickFriends">Invite your friends..</label>
@@ -147,11 +147,11 @@
           </div>
           <div class="form-group">
             <label for="happeningdate">Pick a date for your Happening..</label><br>
-            <input id="happeningdate" name="happeningdate" type="date">
+            <input id="happeningdate" name="happeningdate" type="date" required>
           </div>
           <div class="form-group">
             <label for="imageuploader">Pick a picture for your Happening..</label>
-            <input type="file" class="form-control-file" name="imageuploader" id="imageuploader">
+            <input type="file" class="form-control-file" name="imageuploader" id="imageuploader" required>
           </div>
           <div class="form-group">
             <?php

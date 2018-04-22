@@ -1,68 +1,65 @@
-
-$(function(){
-  $("#menu-toggle").click(function(e){
+$(function() {
+  $('#menu-toggle').click(function(e) {
     e.preventDefault();
-    $("#wrapper").toggleClass("toggled");
+    $('#wrapper').toggleClass('toggled');
   });
 
-  $("#menu-toggle").on("click",function(){
-    $("#menu-toggle").toggleClass("change");
+  $('#menu-toggle').on('click', function() {
+    $('#menu-toggle').toggleClass('change');
   });
 
-  //$(".profile-link-hover").on("mouseover", function(){
-    //$(".profile-link-hover").addClass("text-success")
-//  });
-
-  // $("#submitRegistration").click(function(e){
-  //   e.preventDefault();
-  //   $('#submitRegistration').notify("Thank you for signing up and welcome to our world!", "success");
-  // });
-
-
-  // $.ajax({
-  //   url: '/dinner/admin/register.php',
-  //   type: "POST",
-  //   data: {
-  //
-  //   },
-  //   success: function(data){
-  //     data.preventDefault();
-  //       $('#flash-success').toggleClass('success-toggle')
-  //   }
-  // });
-
+  $('.image-thumbnail-hover').hover(function() {
+    $(this).html;
+  });
 });
 
+//draggable content function
+function dragstart_handler(ev) {
+  console.log('dragStart');
+  ev.dataTransfer.setData('text/html', ev.target.id);
+  ev.dataTransfer.dropEffect = 'move';
+  $('.hiddenDragdrop').toggle('.hiddenDragdrop');
+}
 
-  //happening modal
-function upcominghappeningmodal(id){
-  var data = {"id": id,};
+function dragover_handler(ev) {
+  ev.preventDefault();
+  ev.dataTransfer.dropEffect = 'move';
+}
+function drop_handler(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData('text/html');
+  ev.target.appendChild(document.getElementById(data));
+}
+
+//happening modal
+function upcominghappeningmodal(id) {
+  var data = { id: id };
   jQuery.ajax({
     url: '/dinner/includes/upcominghappeningmodal.php',
     method: 'post',
     data: data,
-    success: function(data){
+    success: function(data) {
       jQuery('body').prepend(data);
       jQuery('#upcoming-happening').modal('toggle');
     },
-    error: function(){
-      alert("Something went wrong!");
+    error: function() {
+      alert('Something went wrong!');
     }
   });
 }
 
-  function recenthappeningmodal(id){
-    var data = {"id": id,};
-    jQuery.ajax({
-      url: '/dinner/includes/recenthappeningmodal.php',
-      method: 'post',
-      data: data,
-      success: function(data){
-        jQuery('body').prepend(data);
-        jQuery('#recent-happening').modal('toggle');
-      },
-      error: function(){
-        alert("Oh no.. Something went wrong!");
-      }
-    });
-  }
+function recenthappeningmodal(id) {
+  var data = { id: id };
+  jQuery.ajax({
+    url: '/dinner/includes/recenthappeningmodal.php',
+    method: 'post',
+    data: data,
+    success: function(data) {
+      jQuery('body').prepend(data);
+      jQuery('#recent-happening').modal('toggle');
+    },
+    error: function() {
+      alert('Oh no.. Something went wrong!');
+    }
+  });
+}
