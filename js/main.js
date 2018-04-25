@@ -18,7 +18,7 @@ function dragstart_handler(ev) {
   console.log('dragStart');
   ev.dataTransfer.setData('text/html', ev.target.id);
   ev.dataTransfer.dropEffect = 'move';
-  $('.hiddenDragdrop').toggle('.hiddenDragdrop');
+  $('#target').addClass('.hiddenDragdrop');
 }
 
 function dragover_handler(ev) {
@@ -29,6 +29,7 @@ function drop_handler(ev) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData('text/html');
   ev.target.appendChild(document.getElementById(data));
+  $('#target').removeClass('.hiddenDragdrop');
 }
 
 //happening modal
