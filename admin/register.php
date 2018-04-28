@@ -14,7 +14,10 @@
     $password = sanitize($_POST['passwordRegister']);
     $firstname = sanitize($_POST['firstnameRegister']);
     $lastname = sanitize($_POST['lastnameRegister']);
-    $email = $_POST['emailRegister'];
+    $email = filter_var($_POST['emailRegister'], FILTER_VALIDATE_EMAIL);
+    if (!filter_var($_POST['emailRegister'], FILTER_VALIDATE_EMAIL)) {
+      $errors[] .= "Thats not a valid email. Please try again.";
+    }
 
     // check if user already exsist in database
     $sql = "SELECT * FROM user_profile WHERE username = '$username'";
