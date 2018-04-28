@@ -30,8 +30,8 @@
       header('Location: register.php?failed');
     }else{
       //Add new user to database
-      $sql = "INSERT INTO user_profile (username, password, auth_level, date_created, full_name, email)
-      VALUES ('$username', '$password', '3', NOW(), '$firstname $lastname', '$email')";
+      $sql = "INSERT INTO user_profile (username, password, auth_level, date_created, full_name, email, active)
+      VALUES ('$username', '$password', '3', NOW(), '$firstname $lastname', '$email', '0')";
 
 
     $db->query($sql);
