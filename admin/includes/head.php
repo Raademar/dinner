@@ -11,6 +11,6 @@
     <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="../js/notify.js"></script>
     <script type="text/javascript" src="../js/main.js"></script>
-    
+
   </head>
-  <body>
+  <body id="mainBackgroundColor">

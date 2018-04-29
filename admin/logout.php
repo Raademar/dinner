@@ -1,7 +1,7 @@
 <?php
 
-require_once '../core/init.php';
-include_once '../helpers/helpers.php';
+require_once '/dinner/core/init.php';
+include_once '/dinner/helpers/helpers.php';
 
 //start secure new session.
 sec_session_start();

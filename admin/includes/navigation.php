@@ -40,7 +40,7 @@
               <span class="profile-text"><a class="login-nav-class" href="#"><i class="fas fa-user"></i></a></span>
               <span class="notification-text"><a class="login-nav-class" href="#"><i class="fas fa-comments"></i></a></span>
               <span class="login-text"><a class="login-nav-class" href="#"><i class="fas fa-sign-in-alt"></i></a></span>
-              <span class="register-text "><a class="login-nav-class" href="../admin/register.php">Register?</a></span>
+              <span class="register-text "><a class="login-nav-class" href="/dinner/admin/logout.php">Log out</a></span>
               <div class="input-group input-group-sm mb-3">
                 <div class="input-group-prepend">
                   <button class="btn" id="submitLoginButton" type="submit">Login</button>

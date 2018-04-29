@@ -1,7 +1,9 @@
 <?php
   require_once '../core/init.php';
   include 'includes/head.php';
+  if(isset($_GET['success'])):
   include 'includes/navigation.php';
+  endif;
 
   //query database
   $sql = "SELECT * FROM user_profile";
@@ -42,9 +44,16 @@
     }
   }
   ?>
-<div class="row center-col-spacing" id="form-content">
+<div class="row" id="mainBackgroundColor">
 <div class="col-sm-4"></div>
+<div class="col-sm-4">
+<div class="form-container">
   <form class="float-center" id="reg-form" method="post">
+    <div class="form-group row">
+      <div class="col-sm-12">
+        <h1 class="text-center">Register Account</h1>
+      </div>
+    </div>
     <?php if(isset($_GET['success'])): ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
           Your account was successfully registered. Welcome to our world!
@@ -58,29 +67,30 @@
       </div>
     <?php endif; ?>
     <div class="col-sm-12">
-      <div class="row">
-        <div class="col-sm-6 form-group">
-          <label for="usernameLogin">Username</label>
-          <input type="text" class="form-control" id="usernameRegister" name="usernameRegister" required>
-        </div>
-        <div class="col-sm-6 form-group">
-          <label for="passwordRegister">Password</label>
-          <input type="password" class="form-control" id="passwordRegister" name="passwordRegister" required>
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <input type="text" class="form-control" id="usernameRegister" name="usernameRegister" placeholder="Username" required>
         </div>
       </div>
-      <div class="row">
-        <div class="col-sm-6 form-group">
-          <label>First Name</label>
-          <input type="text" class="form-control" id="firstnameRegister" name="firstnameRegister" required>
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <input type="password" class="form-control" id="passwordRegister" name="passwordRegister" placeholder="Password" required>
         </div>
-          <div class="col-sm-6 form-group">
-            <label>Last Name</label>
-            <input type="text" class="form-control" id="lastnameRegister" name="lastnameRegister" required>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <input type="text" class="form-control" id="firstnameRegister" name="firstnameRegister" placeholder="First Name" required>
+        </div>
+      </div>
+      <div class="form-group row">
+          <div class="col-sm-12">
+            <input type="text" class="form-control" id="lastnameRegister" name="lastnameRegister" placeholder="Last Name"required>
           </div>
         </div>
-      <div class="form-group">
-        <label>Email Address</label>
-        <input type="text" class="form-control" id="emailRegister" name="emailRegister" required>
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <input type="text" class="form-control" id="emailRegister" name="emailRegister" placeholder="Email Address" required>
+        </div>
       </div>
       <div class="form-group">
         <div class="form-check">
@@ -88,8 +98,9 @@
           <label class="form-check-label" for="acceptTermsCheck">Agree to terms and conditions.</label>
         </div>
       </div>
-      <input type="submit" class="btn btn-info" id="submitRegistration" name="submitRegistration" value="Submit"></input>
-
-    </div>
+      <input type="submit" class="btn btn-outline-light" id="submitRegistration" name="submitRegistration" value="Register"></input>
+      </div>
+    </form>
   </div>
-  </form>
+</div>
+</div>
