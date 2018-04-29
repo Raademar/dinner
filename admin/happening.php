@@ -131,7 +131,7 @@
               }
             } ?>
             <label for="happeningText">Say something about your Happening..</label>
-            <textarea class="form-control" name="happeningtext" id="happeningtext" type="text" rows="3" required><?=$happening_value2; ?></textarea>
+            <textarea class="form-control" name="happeningtext" id="happeningtext" type="text" rows="5" required><?=$happening_value2; ?></textarea>
           </div>
           <div class="form-group">
             <label for="pickFriends">Invite your friends..</label>
