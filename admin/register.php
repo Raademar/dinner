@@ -14,7 +14,10 @@
     $password = sanitize($_POST['passwordRegister']);
     $firstname = sanitize($_POST['firstnameRegister']);
     $lastname = sanitize($_POST['lastnameRegister']);
-    $email = $_POST['emailRegister'];
+    $email = filter_var($_POST['emailRegister'], FILTER_VALIDATE_EMAIL);
+    if (!filter_var($_POST['emailRegister'], FILTER_VALIDATE_EMAIL)) {
+      $errors[] .= "Thats not a valid email. Please try again.";
+    }
 
     // check if user already exsist in database
     $sql = "SELECT * FROM user_profile WHERE username = '$username'";
@@ -30,8 +33,8 @@
       header('Location: register.php?failed');
     }else{
       //Add new user to database
-      $sql = "INSERT INTO user_profile (username, password, auth_level, date_created, full_name, email)
-      VALUES ('$username', '$password', '3', NOW(), '$firstname $lastname', '$email')";
+      $sql = "INSERT INTO user_profile (username, password, auth_level, date_created, full_name, email, active)
+      VALUES ('$username', '$password', '3', NOW(), '$firstname $lastname', '$email', '0')";
 
 
     $db->query($sql);

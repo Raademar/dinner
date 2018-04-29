@@ -166,14 +166,14 @@
             <label for="userid">User ID..</label><br>
             <input class="form-control" type="text" name="userid" id="userid" value="<?=$happening_value3; ?>">
           </div>
-          <!-- <div class="form-check">
-            <input class="form-check-input" type="radio" name="publicHappening" id="publicHappening1" value="public" checked>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="visibility" id="publicHappening1" value="public" checked>
             <label class="form-check-label" for="publicHappening1">Public</label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="privateHappening" id="privateHappening1" value="private">
+            <input class="form-check-input" type="radio" name="visibility" id="privateHappening1" value="private">
             <label class="form-check-label" for="privateHappening1">Private</label>
-          </div>  -->
+          </div>
         <input type="submit" name="add_submit" value="<?=((isset($_GET['edit']))?'Edit':'Add'); ?> Happening" class="btn btn-outline-success">
         <?php if(isset($_GET['edit'])): ?>
           <a href="happening.php" class="btn btn-outline-danger">Cancel</a>
