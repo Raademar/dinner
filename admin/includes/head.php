@@ -13,4 +13,4 @@
     <script type="text/javascript" src="../js/main.js"></script>
 
   </head>
-  <body id="mainBackgroundColor">
+  <body id="">
