@@ -2,7 +2,6 @@
   require_once $_SERVER['DOCUMENT_ROOT'].'/dinner/core/init.php';
   include 'includes/head.php';
   include 'includes/navigation.php';
-
   $sql = "SELECT * FROM happening WHERE date >= CURRENT_DATE order by date";
   $happening = $db->query($sql);
 
