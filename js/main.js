@@ -8,10 +8,19 @@ $(function() {
     $('#menu-toggle').toggleClass('change');
   });
 
-  $('.image-thumbnail-hover').hover(function() {
-    $(this).html;
-  });
+
 });
+
+
+// register redirect to login after success message shown.
+if (window.location.href === 'http://localhost/dinner/admin/register.php?success=true') {
+  function(){
+    setTimeout(function() {
+        alert("hi!");
+        //window.location.href('http://localhost/dinner/admin/login.php');
+    }, 2000);
+  }
+}
 
 //draggable content function
 function dragstart_handler(ev) {

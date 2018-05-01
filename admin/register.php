@@ -41,6 +41,8 @@
 
     $db->query($sql);
     header('Location: register.php?success=true');
+    header('refresh:2; login.php');
+
     }
   }
   ?>
