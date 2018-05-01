@@ -7,17 +7,16 @@ $(function() {
   $('#menu-toggle').on('click', function() {
     $('#menu-toggle').toggleClass('change');
   });
-
-
 });
 
-
 // register redirect to login after success message shown.
-if (window.location.href === 'http://localhost/dinner/admin/register.php?success=true') {
-  function(){
+if (
+  window.location.href ==
+  'http://localhost/dinner/admin/register.php?success=true'
+) {
+  function registeredUserTransfer() {
     setTimeout(function() {
-        alert("hi!");
-        //window.location.href('http://localhost/dinner/admin/login.php');
+      window.location.href('http://localhost/dinner/admin/login.php');
     }, 2000);
   }
 }

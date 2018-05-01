@@ -13,7 +13,12 @@
   //If register form is submitted
   if(isset($_POST['submitRegistration'])){
     $username = sanitize($_POST['usernameRegister']);
-    $password = sanitize($_POST['passwordRegister']);
+    $password = filter_input($_POST['passwordRegister'], 'p', FILTER_SANITIZE_STRING);
+    if (strlen($password) != 128) {
+      // The hashed password should be 128 characters long.
+      $errors .= 'Invalid Password.';
+    }
+
     $firstname = sanitize($_POST['firstnameRegister']);
     $lastname = sanitize($_POST['lastnameRegister']);
     $email = filter_var($_POST['emailRegister'], FILTER_VALIDATE_EMAIL);
@@ -41,7 +46,6 @@
 
     $db->query($sql);
     header('Location: register.php?success=true');
-    header('refresh:2; login.php');
 
     }
   }
