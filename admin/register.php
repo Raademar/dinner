@@ -13,11 +13,7 @@
   //If register form is submitted
   if(isset($_POST['submitRegistration'])){
     $username = sanitize($_POST['usernameRegister']);
-    $password = filter_input($_POST['passwordRegister'], 'p', FILTER_SANITIZE_STRING);
-    if (strlen($password) != 128) {
-      // The hashed password should be 128 characters long.
-      $errors .= 'Invalid Password.';
-    }
+    $password = sanitize($_POST['passwordRegister']);
 
     $firstname = sanitize($_POST['firstnameRegister']);
     $lastname = sanitize($_POST['lastnameRegister']);
@@ -25,6 +21,8 @@
     if (!filter_var($_POST['emailRegister'], FILTER_VALIDATE_EMAIL)) {
       $errors[] .= "Thats not a valid email. Please try again.";
     }
+
+
 
     // check if user already exsist in database
     $sql = "SELECT * FROM user_profile WHERE username = '$username'";

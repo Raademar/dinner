@@ -1,3 +1,13 @@
+<?php
+require_once 'core/init.php';
+session_start();
+
+$sql3 = "SELECT id FROM user_profile ";
+$activeUser = $db->query($sql3);
+
+
+ ?>
+
 <header>
     <div id="wrapper">
       <!-- Sidebar -->
@@ -34,13 +44,11 @@
               <span class="login-nav-class profile-text"><a href="#"><i class="fas fa-user"></i></a></span>
               <span class="login-nav-class notification-text"><a href="#"><i class="fas fa-comments"></i></a></span>
               <span class="login-nav-class login-text"><a href="#"><i class="fas fa-sign-in-alt"></i></a></span>
-              <span class="login-nav-class register-text"><a href="admin/register.php">Register?</a></span>
-              <div class="input-group input-group-sm mb-3">
-                <div class="input-group-prepend">
-                  <button class="btn btn-outline-success" id="submitLoginButton" type="submit">Login</button>
-                </div>
-                <input id="usernameLogin" type="text" class="form-control" placeholder="Username">
-                <input id="passwordLogin" type="password" class="form-control" placeholder="Password">
+              <span class="login-nav-class register-text"><a href="admin/logout.php">Logout?</a></span>
+              <div class="">
+                <?php while($user = mysqli_fetch_assoc($activeUser)) : ?>
+                <p><?=$user['full_name']; ?></p>
+              <?php endwhile; ?>
               </div>
             </div>
           </div>

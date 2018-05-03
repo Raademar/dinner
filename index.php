@@ -9,6 +9,9 @@
 
   $sql2 = "SELECT * FROM happening WHERE date < CURRENT_DATE";
   $recenthappening = $db->query($sql2);
+
+
+
  ?>
 
         <div class="row justify-content-center">
